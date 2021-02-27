@@ -41,7 +41,7 @@ function decode(token){
   */
 function getStudentData(text, filename){
     let inprogress = false;
-    let courses = ["2605", "2606", "2611"];
+    let courses = ["2605", "2606", "2611", "3603"];
     let student = {
         id:undefined,
         gpa:undefined,
@@ -50,6 +50,7 @@ function getStudentData(text, filename){
         info2602:'N/A',
         comp2611:'N/A',
         comp2605:'N/A',
+        comp3603: 'N/A',
         parsedText: undefined
     }
 
