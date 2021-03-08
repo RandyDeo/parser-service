@@ -41,13 +41,16 @@ function decode(token){
   */
 function getStudentData(text, filename){
     let inprogress = false;
-    let courses = ["2605", "2606", "2611", "3603"];
+    let comp = ["2605", "2606", "2611", "3603"];
+    let info = ["2602", "2604","3604"];
     let student = {
         id:undefined,
         gpa:undefined,
         fullname: undefined,
         comp2606:'N/A',
         info2602:'N/A',
+        info2604:'N/A',
+        info3604:'N/A',
         comp2611:'N/A',
         comp2605:'N/A',
         comp3603: 'N/A',
@@ -77,7 +80,7 @@ function getStudentData(text, filename){
         }
 
         //we want the grades of 4 specific courses
-        if(courses.includes(token)){
+        if(comp.includes(token)){
             // console.log(token, decode(text[i + 4]));
             //grade column is 4 cols after the course column
             if(!inprogress)
@@ -86,13 +89,22 @@ function getStudentData(text, filename){
                 student[`comp${token}`] = 'IP'; //indicate In Progress
         }
 
-        if(token === '2602' && text[i - 1]==='INFO'){
-           
+        if(info.includes(token)){
+            // console.log(token, decode(text[i + 4]));
+            //grade column is 4 cols after the course column
             if(!inprogress)
                 student[`info${token}`] = decode(text[i + 4]); //pull grade
             else
                 student[`info${token}`] = 'IP'; //indicate In Progress
         }
+
+        //if(token === '2602' && text[i - 1]==='INFO'){
+           
+            //if(!inprogress)
+                //student[`info${token}`] = decode(text[i + 4]); //pull grade
+            //else
+                //student[`info${token}`] = 'IP'; //indicate In Progress
+        //}
             
         i++;
     }
