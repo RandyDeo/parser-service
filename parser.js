@@ -41,19 +41,48 @@ function decode(token){
   */
 function getStudentData(text, filename){
     let inprogress = false;
-    let comp = ["2605", "2606", "2611", "3603"];
-    let info = ["2602", "2604","1601"];
+    let comp = ["2601", "2602", "2603", "2604", "2605", "2606", "2611", "3601", "3602", "3603", "3605", "3606", "3607", "3608", "3609", "3610", "3611", "3612", "3613"];
+    let info = ["2602", "2604", "2605", "3600", "3604", "3605", "3606", "3607", "3608", "3609", "3610", "3611"];
+    let math = ["2250"];
     let student = {
         id:undefined,
         gpa:undefined,
         fullname: undefined,
+
+        comp2601: 'N/A',
+        comp2602: 'N/A',
+        comp2603: 'N/A',
+        comp2604: 'N/A',
+        comp2605: 'N/A',
         comp2606:'N/A',
+        comp2611:'N/A',
+        comp3601: 'N/A',
+        comp3602: 'N/A',
+        comp3603: 'N/A',
+        comp3605: 'N/A',
+        comp3606: 'N/A',
+        comp3607: 'N/A',
+        comp3608: 'N/A',
+        comp3609: 'N/A',
+        comp3610: 'N/A',
+        comp3611: 'N/A',
+        comp3612: 'N/A',
+        comp3613: 'N/A',
+
         info2602:'N/A',
         info2604:'N/A',
-        info1601:'N/A',
-        comp2611:'N/A',
-        comp2605:'N/A',
-        comp3603: 'N/A',
+        info2605:'N/A',
+        info3600:'N/A',
+        info3604:'N/A',
+        info3605:'N/A',
+        info3606:'N/A',
+        info3607:'N/A',
+        info3608:'N/A',
+        info3609:'N/A',
+        info3610:'N/A',
+        info3611:'N/A',
+
+        math2250: 'N/A',
         parsedText: undefined
     }
 
@@ -96,6 +125,15 @@ function getStudentData(text, filename){
                 student[`info${token}`] = decode(text[i + 4]); //pull grade
             else
                 student[`info${token}`] = 'IP'; //indicate In Progress
+        }
+
+        if(math.includes(token)){
+            // console.log(token, decode(text[i + 4]));
+            //grade column is 4 cols after the course column
+            if(!inprogress)
+                student[`math${token}`] = decode(text[i + 4]); //pull grade
+            else
+                student[`math${token}`] = 'IP'; //indicate In Progress
         }
 
         //if(token === '2602' && text[i - 1]==='INFO'){
