@@ -142,19 +142,17 @@ function getStudentData(text, filename){
             //grade column is 4 cols after the course column
 
             if(!inprogress) {
-                if(dupe_codes.includes(token) && text[i - 1]==='COMP') {
+            
+                if(dupe_codes.includes(token) && text[i - 1]==='COMP')
                     student[`comp${token}`] = decode(text[i + 4]); //pull grade
-                else
+                else if(dupe_codes.includes(token) && text[i - 1]==='INFO')
+                    student[`info${token}`] = decode(text[i + 4]); //pull grade
+                else {
                     student[`comp${token}`] = 'IP';
-                }
-
-            else if {
-                    if(dupe_codes.includes(token) && text[i - 1]==='INFO')
-                        student[`info${token}`] = decode(text[i + 4]); //pull grade
-                    else
-                        student[`info${token}`] = 'IP';
+                    student[`info${token}`] = 'IP';
                     }
             }
+
         }
 
         i++;
