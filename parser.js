@@ -107,7 +107,16 @@ function getStudentData(text, filename){
         if(token === "Record%20of%3A"){
             student.id = text[ i + 1]
         }
-
+        
+        if(info.includes(token)){
+            // console.log(token, decode(text[i + 4]));
+            //grade column is 4 cols after the course column
+            if(!inprogress)
+                student[`info${token}`] = decode(text[i + 4]); //pull grade
+            else
+                student[`info${token}`] = 'IP'; //indicate In Progress
+        }
+        
         //we want the grades of 4 specific courses
         if(comp.includes(token)){
             // console.log(token, decode(text[i + 4]));
@@ -117,16 +126,7 @@ function getStudentData(text, filename){
             else
                 student[`comp${token}`] = 'IP'; //indicate In Progress
         }
-
-        if(info.includes(token)){
-            // console.log(token, decode(text[i + 4]));
-            //grade column is 4 cols after the course column
-            if(!inprogress)
-                student[`info${token}`] = decode(text[i + 4]); //pull grade
-            else
-                student[`info${token}`] = 'IP'; //indicate In Progress
-        }
-
+     
         if(math.includes(token)){
             // console.log(token, decode(text[i + 4]));
             //grade column is 4 cols after the course column
