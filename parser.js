@@ -136,13 +136,13 @@ function getStudentData(text, filename){
                 student[`math${token}`] = 'IP'; //indicate In Progress
         }
 
-        //if(token === '2602' && text[i - 1]==='INFO'){
+        if(token === '2602' && text[i - 1]==='COMP'){
            
-            //if(!inprogress)
-                //student[`info${token}`] = decode(text[i + 4]); //pull grade
-            //else
-                //student[`info${token}`] = 'IP'; //indicate In Progress
-        //}
+            if(!inprogress)
+                student[`comp${token}`] = decode(text[i + 4]); //pull grade
+            else
+                student[`comp${token}`] = 'IP'; //indicate In Progress
+        }
             
         i++;
     }
