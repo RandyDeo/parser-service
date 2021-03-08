@@ -159,6 +159,7 @@ function getStudentData(text, filename){
 
         i++;
     }
+}
 
     student.parsedText = text;
 
