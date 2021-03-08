@@ -41,8 +41,8 @@ function decode(token){
   */
 function getStudentData(text, filename){
     let inprogress = false;
-    let comp_codes = ["2601","2603", "2604", "2605", "2606", "2611", "3601", "3602", "3603", "3605", "3606", "3607", "3608", "3609", "3610", "3611", "3612", "3613"];
-    let info_codes = ["2604", "2605", "3600", "3604", "3605", "3606", "3607", "3608", "3609", "3610", "3611"];
+    let comp_codes = ["2601","2603", "2606", "2611", "3601", "3602", "3603", "3612", "3613"];
+    let info_codes = ["3600", "3604"];
     let math_codes = ["2250"];
     let student = {
         id:undefined,
@@ -54,8 +54,8 @@ function getStudentData(text, filename){
         comp2603: 'N/A',
         comp2604: 'N/A',
         comp2605: 'N/A',
-        comp2606:'N/A',
-        comp2611:'N/A',
+        comp2606: 'N/A',
+        comp2611: 'N/A',
         comp3601: 'N/A',
         comp3602: 'N/A',
         comp3603: 'N/A',
@@ -69,18 +69,18 @@ function getStudentData(text, filename){
         comp3612: 'N/A',
         comp3613: 'N/A',
 
-        info2602:'N/A',
-        info2604:'N/A',
-        info2605:'N/A',
-        info3600:'N/A',
-        info3604:'N/A',
-        info3605:'N/A',
-        info3606:'N/A',
-        info3607:'N/A',
-        info3608:'N/A',
-        info3609:'N/A',
-        info3610:'N/A',
-        info3611:'N/A',
+        info2602: 'N/A',
+        info2604: 'N/A',
+        info2605: 'N/A',
+        info3600: 'N/A',
+        info3604: 'N/A',
+        info3605: 'N/A',
+        info3606: 'N/A',
+        info3607: 'N/A',
+        info3608: 'N/A',
+        info3609: 'N/A',
+        info3610: 'N/A',
+        info3611: 'N/A',
 
         math2250: 'N/A',
         parsedText: undefined
@@ -151,7 +151,151 @@ function getStudentData(text, filename){
             else
                 student[`info${token}`] = 'IP'; //indicate In Progress
         }
-            
+
+        if(token === '2604' && text[i - 1]==='COMP'){
+
+            if(!inprogress)
+                student[`comp${token}`] = decode(text[i + 4]); //pull grade
+            else
+                student[`comp${token}`] = 'IP'; //indicate In Progress
+        }
+
+        if(token === '2604' && text[i - 1]==='INFO'){
+
+            if(!inprogress)
+                student[`info${token}`] = decode(text[i + 4]); //pull grade
+            else
+                student[`info${token}`] = 'IP'; //indicate In Progress
+        }
+
+        if(token === '2605' && text[i - 1]==='COMP'){
+
+            if(!inprogress)
+                student[`comp${token}`] = decode(text[i + 4]); //pull grade
+            else
+                student[`comp${token}`] = 'IP'; //indicate In Progress
+        }
+
+        if(token === '2605' && text[i - 1]==='INFO'){
+
+            if(!inprogress)
+                student[`info${token}`] = decode(text[i + 4]); //pull grade
+            else
+                student[`info${token}`] = 'IP'; //indicate In Progress
+        }
+
+        if(token === '3605' && text[i - 1]==='COMP'){
+
+            if(!inprogress)
+                student[`comp${token}`] = decode(text[i + 4]); //pull grade
+            else
+                student[`comp${token}`] = 'IP'; //indicate In Progress
+        }
+
+        if(token === '3605' && text[i - 1]==='INFO'){
+
+            if(!inprogress)
+                student[`info${token}`] = decode(text[i + 4]); //pull grade
+            else
+                student[`info${token}`] = 'IP'; //indicate In Progress
+        }
+
+        if(token === '3606' && text[i - 1]==='COMP'){
+
+            if(!inprogress)
+                student[`comp${token}`] = decode(text[i + 4]); //pull grade
+            else
+                student[`comp${token}`] = 'IP'; //indicate In Progress
+        }
+
+        if(token === '3606' && text[i - 1]==='INFO'){
+
+            if(!inprogress)
+                student[`info${token}`] = decode(text[i + 4]); //pull grade
+            else
+                student[`info${token}`] = 'IP'; //indicate In Progress
+        }
+
+        if(token === '3607' && text[i - 1]==='COMP'){
+
+            if(!inprogress)
+                student[`comp${token}`] = decode(text[i + 4]); //pull grade
+            else
+                student[`comp${token}`] = 'IP'; //indicate In Progress
+        }
+
+        if(token === '3607' && text[i - 1]==='INFO'){
+
+            if(!inprogress)
+                student[`info${token}`] = decode(text[i + 4]); //pull grade
+            else
+                student[`info${token}`] = 'IP'; //indicate In Progress
+        }
+
+        if(token === '3608' && text[i - 1]==='COMP'){
+
+            if(!inprogress)
+                student[`comp${token}`] = decode(text[i + 4]); //pull grade
+            else
+                student[`comp${token}`] = 'IP'; //indicate In Progress
+        }
+
+        if(token === '3608' && text[i - 1]==='INFO'){
+
+            if(!inprogress)
+                student[`info${token}`] = decode(text[i + 4]); //pull grade
+            else
+                student[`info${token}`] = 'IP'; //indicate In Progress
+        }
+
+        if(token === '3609' && text[i - 1]==='COMP'){
+
+            if(!inprogress)
+                student[`comp${token}`] = decode(text[i + 4]); //pull grade
+            else
+                student[`comp${token}`] = 'IP'; //indicate In Progress
+        }
+
+        if(token === '3609' && text[i - 1]==='INFO'){
+
+            if(!inprogress)
+                student[`info${token}`] = decode(text[i + 4]); //pull grade
+            else
+                student[`info${token}`] = 'IP'; //indicate In Progress
+        }
+
+        if(token === '3610' && text[i - 1]==='COMP'){
+
+            if(!inprogress)
+                student[`comp${token}`] = decode(text[i + 4]); //pull grade
+            else
+                student[`comp${token}`] = 'IP'; //indicate In Progress
+        }
+
+        if(token === '3610' && text[i - 1]==='INFO'){
+
+            if(!inprogress)
+                student[`info${token}`] = decode(text[i + 4]); //pull grade
+            else
+                student[`info${token}`] = 'IP'; //indicate In Progress
+        }
+
+        if(token === '3611' && text[i - 1]==='COMP'){
+
+            if(!inprogress)
+                student[`comp${token}`] = decode(text[i + 4]); //pull grade
+            else
+                student[`comp${token}`] = 'IP'; //indicate In Progress
+        }
+
+        if(token === '3611' && text[i - 1]==='INFO'){
+
+            if(!inprogress)
+                student[`info${token}`] = decode(text[i + 4]); //pull grade
+            else
+                student[`info${token}`] = 'IP'; //indicate In Progress
+        }
+
         i++;
     }
 
