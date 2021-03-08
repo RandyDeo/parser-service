@@ -142,7 +142,7 @@ function getStudentData(text, filename){
             //grade column is 4 cols after the course column
 
             if(!inprogress) {
-            
+
                 if(dupe_codes.includes(token) && text[i - 1]==='COMP')
                     student[`comp${token}`] = decode(text[i + 4]); //pull grade
                 else if(dupe_codes.includes(token) && text[i - 1]==='INFO')
@@ -159,7 +159,6 @@ function getStudentData(text, filename){
     }
 
     student.parsedText = text;
-
     return student;
 }
 
@@ -167,7 +166,6 @@ async function parse(file){
     const text = await getPDFText(file);
     return getStudentData(text);
 }
-
 
 module.exports = {parse}
 
