@@ -44,7 +44,7 @@ function getStudentData(text, filename){
     let comp_codes = ["2601", "2603", "2606", "2611", "3601", "3602", "3603", "3612", "3613"];
     let info_codes = ["3600", "3604"];
     let math_codes = ["2250"];
-    let dupe_codes = ["2602", "2604", "2605", "3605", "3606", "3607", "3608", "3609", "3610", "3611"]
+    let dupe_codes = ["2602", "2604", "2605", "3605", "3606", "3607", "3608", "3609", "3610", "3611"];
     let student = {
         id:undefined,
         gpa:undefined,
