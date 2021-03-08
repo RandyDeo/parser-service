@@ -41,8 +41,8 @@ function decode(token){
   */
 function getStudentData(text, filename){
     let inprogress = false;
-    let comp_codes = ["2601", "2602", "2603", "2604", "2605", "2606", "2611", "3601", "3602", "3603", "3605", "3606", "3607", "3608", "3609", "3610", "3611", "3612", "3613"];
-    let info_codes = ["2602", "2604", "2605", "3600", "3604", "3605", "3606", "3607", "3608", "3609", "3610", "3611"];
+    let comp_codes = ["2601","2603", "2604", "2605", "2606", "2611", "3601", "3602", "3603", "3605", "3606", "3607", "3608", "3609", "3610", "3611", "3612", "3613"];
+    let info_codes = ["2604", "2605", "3600", "3604", "3605", "3606", "3607", "3608", "3609", "3610", "3611"];
     let math_codes = ["2250"];
     let student = {
         id:undefined,
@@ -142,6 +142,14 @@ function getStudentData(text, filename){
                 student[`comp${token}`] = decode(text[i + 4]); //pull grade
             else
                 student[`comp${token}`] = 'IP'; //indicate In Progress
+        }
+
+        if(token === '2602' && text[i - 1]==='INFO'){
+
+            if(!inprogress)
+                student[`info${token}`] = decode(text[i + 4]); //pull grade
+            else
+                student[`info${token}`] = 'IP'; //indicate In Progress
         }
             
         i++;
