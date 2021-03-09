@@ -41,10 +41,10 @@ function decode(token){
   */
 function getStudentData(text, filename){
     let inprogress = false;
-    let comp_codes = ["2601", "2603", "2606", "2611", "3601", "3602", "3603", "3612", "3613"];
-    let info_codes = ["3600", "3604"];
+    let comp_codes = ["2606", "2611", "3603", "3612", "3613"];
+    let info_codes = ["2600", "2604", "2605", "3600", "3604"];
     let math_codes = ["2250"];
-    let dupe_codes = ["2602", "2604", "2605", "3605", "3606", "3607", "3608", "3609", "3610", "3611"];
+    let dupe_codes = ["2601", "2602", "2603", "2604", "2605", "3601", "3602", "3605", "3606", "3607", "3608", "3609", "3610", "3611"];
     let student = {
         id:undefined,
         gpa:undefined,
@@ -70,10 +70,15 @@ function getStudentData(text, filename){
         comp3612: 'N/A',
         comp3613: 'N/A',
 
+        info2600: 'N/A',
+        info2601: 'N/A',
         info2602: 'N/A',
+        info2603: 'N/A',
         info2604: 'N/A',
         info2605: 'N/A',
         info3600: 'N/A',
+        info3601: 'N/A',
+        info3602: 'N/A',
         info3604: 'N/A',
         info3605: 'N/A',
         info3606: 'N/A',
