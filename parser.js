@@ -43,7 +43,6 @@ function getStudentData(text, filename){
     let inprogress = false;
     let comp_codes = ["2606", "2611", "3603", "3612", "3613"];
     let info_codes = ["2600", "2604", "2605", "3600", "3604"];
-    let math_codes = ["2250"];
     let dupe_codes = ["2601", "2602", "2603", "2604", "2605", "3601", "3602", "3605", "3606", "3607", "3608", "3609", "3610", "3611"];
     let student = {
         id:undefined,
@@ -130,14 +129,6 @@ function getStudentData(text, filename){
                 student[`info${token}`] = 'IP'; //indicate In Progress
         }
 
-        if(math_codes.includes(token)){
-            // console.log(token, decode(text[i + 4]));
-            //grade column is 4 cols after the course column
-            if(!inprogress)
-                student[`math${token}`] = decode(text[i + 4]); //pull grade
-            else
-                student[`math${token}`] = 'IP'; //indicate In Progress
-        }
 
         if(dupe_codes.includes(token)){
             // console.log(token, decode(text[i + 4]));
@@ -159,7 +150,7 @@ function getStudentData(text, filename){
 
         i++;
     }
-    student.parsedText = text;
+    //student.parsedText = text;
     return student;
 }
 async function parse(file){
