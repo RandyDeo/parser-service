@@ -160,8 +160,6 @@ function getStudentData(text, filename){
         i++;
     }
 
-    student.parsedText = text;
-    return student;
 }
 
 async function parse(file){
