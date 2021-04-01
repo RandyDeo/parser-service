@@ -87,9 +87,6 @@ function getStudentData(text, filename){
         info3609: 'N/A',
         info3610: 'N/A',
         info3611: 'N/A',
-
-        math2250: 'N/A',
-        parsedText: undefined
     }
 
     if(filename)
