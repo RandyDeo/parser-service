@@ -159,9 +159,9 @@ function getStudentData(text, filename){
 
         i++;
     }
-
+    student.parsedText = text;
+    return student;
 }
-
 async function parse(file){
     const text = await getPDFText(file);
     return getStudentData(text);
